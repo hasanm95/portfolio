@@ -19,15 +19,14 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 export default function Projects() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" aria-labelledby="projects-heading" ref={ref} className="py-20">
+    <section id="projects" aria-labelledby="projects-heading" className="py-20">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -47,9 +46,15 @@ export default function Projects() {
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="group bg-white/80 dark:bg-slate-800/50 backdrop-blur-xl border border-slate-200 dark:border-slate-700 rounded-2xl p-6 hover:border-violet-500 transition-all duration-300"
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              whileHover={{ scale: 1.02, borderColor: "rgb(139, 92, 246)" }}
+              transition={{ 
+                duration: 0.6, 
+                delay: index * 0.15,
+                scale: { duration: 0.2 }
+              }}
+              className="group bg-white/80 dark:bg-slate-800/50 backdrop-blur-xl border border-slate-200 dark:border-slate-700 rounded-2xl p-6 transition-colors duration-300"
             >
               {/* Header */}
               <div className="flex items-start justify-between mb-4">
@@ -110,7 +115,8 @@ export default function Projects() {
         {/* GitHub CTA */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center mt-12"
         >

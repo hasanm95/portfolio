@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -48,18 +49,22 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
+          <ThemeToggle />
           <a href="#contact" className="btn-primary text-sm py-2 px-4">
             Hire Me
           </a>
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-[var(--foreground)]"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-4">
+          <ThemeToggle />
+          <button
+            className="text-[var(--foreground)]"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -93,3 +98,4 @@ export default function Navbar() {
     </motion.nav>
   );
 }
+

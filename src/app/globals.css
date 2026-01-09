@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-:root {
+/* Dark theme (default) */
+:root,
+[data-theme="dark"] {
   --background: #0a0a0f;
   --foreground: #f8fafc;
   --muted: #94a3b8;
@@ -8,6 +10,19 @@
   --border: rgba(255, 255, 255, 0.1);
   --primary: #8b5cf6;
   --secondary: #06b6d4;
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --background: #ffffff;
+  --foreground: #1e293b;
+  --muted: #475569;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --border: rgba(0, 0, 0, 0.08);
+  --primary: #7c3aed;
+  --secondary: #0891b2;
+  --shadow: rgba(0, 0, 0, 0.1);
 }
 
 @theme inline {
@@ -31,6 +46,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Gradient text utility */
@@ -47,6 +63,11 @@ body {
   backdrop-filter: blur(20px);
   border: 1px solid var(--border);
   border-radius: 1rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="light"] .glass-card {
+  box-shadow: 0 4px 20px var(--shadow);
 }
 
 /* Animated gradient background */
@@ -60,12 +81,21 @@ body {
   overflow: hidden;
 }
 
+[data-theme="light"] .gradient-bg {
+  background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #f3e8ff 100%);
+}
+
 .gradient-orb {
   position: absolute;
   border-radius: 50%;
   filter: blur(100px);
   opacity: 0.3;
   animation: float 20s ease-in-out infinite;
+}
+
+[data-theme="light"] .gradient-orb {
+  opacity: 0.25;
+  filter: blur(120px);
 }
 
 .gradient-orb-1 {
@@ -77,6 +107,10 @@ body {
   animation-delay: 0s;
 }
 
+[data-theme="light"] .gradient-orb-1 {
+  background: #c4b5fd;
+}
+
 .gradient-orb-2 {
   width: 500px;
   height: 500px;
@@ -84,6 +118,10 @@ body {
   bottom: -150px;
   right: -100px;
   animation-delay: -10s;
+}
+
+[data-theme="light"] .gradient-orb-2 {
+  background: #a5f3fc;
 }
 
 .gradient-orb-3 {
@@ -95,6 +133,11 @@ body {
   transform: translate(-50%, -50%);
   animation-delay: -5s;
   opacity: 0.15;
+}
+
+[data-theme="light"] .gradient-orb-3 {
+  opacity: 0.2;
+  background: linear-gradient(135deg, #ddd6fe, #cffafe);
 }
 
 @keyframes float {
@@ -159,6 +202,10 @@ section {
   box-shadow: 0 10px 40px rgba(139, 92, 246, 0.3);
 }
 
+[data-theme="light"] .btn-primary:hover {
+  box-shadow: 0 10px 40px rgba(124, 58, 237, 0.25);
+}
+
 .btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -173,7 +220,43 @@ section {
   cursor: pointer;
 }
 
+[data-theme="light"] .btn-secondary {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
 .btn-secondary:hover {
   background: var(--card-bg);
   border-color: var(--primary);
 }
+
+[data-theme="light"] .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
+}
+
+/* Light theme input styles */
+[data-theme="light"] input,
+[data-theme="light"] textarea {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+[data-theme="light"] input:focus,
+[data-theme="light"] textarea:focus {
+  background: rgba(255, 255, 255, 1) !important;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+/* Light theme skill tags */
+[data-theme="light"] .glass-card span {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Light theme project icons - keep white on gradient backgrounds */
+[data-theme="light"] .glass-card .rounded-xl svg,
+[data-theme="light"] .glass-card .rounded-lg svg {
+  color: white;
+}
+
+

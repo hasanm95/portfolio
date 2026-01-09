@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,16 +31,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="gradient-bg">
-          <div className="gradient-orb gradient-orb-1"></div>
-          <div className="gradient-orb gradient-orb-2"></div>
-          <div className="gradient-orb gradient-orb-3"></div>
-        </div>
-        {children}
+        <ThemeProvider>
+          <div className="gradient-bg">
+            <div className="gradient-orb gradient-orb-1"></div>
+            <div className="gradient-orb gradient-orb-2"></div>
+            <div className="gradient-orb gradient-orb-3"></div>
+          </div>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

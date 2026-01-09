@@ -2,7 +2,14 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
-import Button from "./Button";
+import Button from "@/components/ui/Button";
+import { socialLinks } from "@/constants";
+
+const iconMap: Record<string, React.ReactNode> = {
+  GitHub: <Github size={24} />,
+  LinkedIn: <Linkedin size={24} />,
+  Email: <Mail size={24} />,
+};
 
 export default function Hero() {
   return (
@@ -75,28 +82,17 @@ export default function Hero() {
           transition={{ delay: 0.8 }}
           className="flex justify-center gap-6"
         >
-          <a
-            href="https://github.com/hasanm95"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-500 dark:text-slate-400 hover:text-violet-500 transition-colors p-2"
-          >
-            <Github size={24} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/hasanm025/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-500 dark:text-slate-400 hover:text-violet-500 transition-colors p-2"
-          >
-            <Linkedin size={24} />
-          </a>
-          <a
-            href="mailto:hasanmobarak25@gmail.com"
-            className="text-slate-500 dark:text-slate-400 hover:text-violet-500 transition-colors p-2"
-          >
-            <Mail size={24} />
-          </a>
+          {socialLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              target={link.name !== "Email" ? "_blank" : undefined}
+              rel={link.name !== "Email" ? "noopener noreferrer" : undefined}
+              className="text-slate-500 dark:text-slate-400 hover:text-violet-500 transition-colors p-2"
+            >
+              {iconMap[link.name]}
+            </a>
+          ))}
         </motion.div>
       </motion.div>
 

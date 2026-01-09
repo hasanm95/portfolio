@@ -1,34 +1,16 @@
 "use client";
 
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { navItems, socialLinks } from "@/constants";
+
+const iconMap: Record<string, React.ReactNode> = {
+  GitHub: <Github size={20} />,
+  LinkedIn: <Linkedin size={20} />,
+  Email: <Mail size={20} />,
+};
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    {
-      icon: <Github size={20} />,
-      href: "https://github.com/hasanm95",
-      label: "GitHub",
-    },
-    {
-      icon: <Linkedin size={20} />,
-      href: "https://www.linkedin.com/in/hasanm025/",
-      label: "LinkedIn",
-    },
-    {
-      icon: <Mail size={20} />,
-      href: "mailto:hasanmobarak25@gmail.com",
-      label: "Email",
-    },
-  ];
-
-  const navLinks = [
-    { label: "About", href: "#about" },
-    { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
-    { label: "Contact", href: "#contact" },
-  ];
 
   return (
     <footer className="border-t border-slate-200 dark:border-slate-800 py-12">
@@ -49,7 +31,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div className="flex flex-wrap justify-center gap-6">
-            {navLinks.map((link) => (
+            {navItems.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
@@ -64,14 +46,14 @@ export default function Footer() {
           <div className="flex gap-4">
             {socialLinks.map((link) => (
               <a
-                key={link.label}
+                key={link.name}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-500 dark:text-slate-400 hover:text-violet-500 transition-colors"
-                aria-label={link.label}
+                aria-label={link.name}
               >
-                {link.icon}
+                {iconMap[link.name]}
               </a>
             ))}
           </div>

@@ -1,14 +1,8 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Experience from "@/components/Experience";
-import Projects from "@/components/Projects";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import { Navbar, Hero, About, Experience, Projects, Contact, Footer } from "@/components";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="px-4 md:px-6">
       <Navbar />
       <Hero />
       <About />

@@ -3,17 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-
-const skills = {
-  Frontend: ["JavaScript", "TypeScript", "React", "Next.js", "Remix", "Gatsby", "HTML5", "CSS3"],
-  "State Management": ["Redux", "Zustand", "Context API", "React Query"],
-  Styling: ["Tailwind CSS", "Styled Components", "Sass", "CSS Modules", "Bootstrap"],
-  Testing: ["Jest", "React Testing Library", "Vitest", "Storybook"],
-  "Tools & Build": ["Webpack", "Rollup", "Vite", "Git", "Docker", "CI/CD"],
-  Backend: ["Node.js", "Express", "GraphQL", "REST APIs", "Golang"],
-  Databases: ["MongoDB", "PostgreSQL"],
-  "AI Tooling": ["Cursor", "GitHub Copilot"],
-};
+import { skills, certifications } from "@/constants";
 
 export default function About() {
   const ref = useRef(null);
@@ -72,15 +62,14 @@ export default function About() {
             <div className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-700">
               <h4 className="font-semibold mb-3 text-slate-900 dark:text-white">Certifications</h4>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg text-slate-600 dark:text-slate-300">
-                  JavaScript (Intermediate) - HackerRank
-                </span>
-                <span className="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg text-slate-600 dark:text-slate-300">
-                  Node.js (Intermediate) - HackerRank
-                </span>
-                <span className="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg text-slate-600 dark:text-slate-300">
-                  Frontend Developer (React) - HackerRank
-                </span>
+                {certifications.map((cert) => (
+                  <span
+                    key={cert}
+                    className="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg text-slate-600 dark:text-slate-300"
+                  >
+                    {cert}
+                  </span>
+                ))}
               </div>
             </div>
           </motion.div>

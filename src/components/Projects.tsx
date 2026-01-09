@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink, Github, Users, Zap, TrendingUp, Code2, GraduationCap, LayoutDashboard, Building2, Smartphone } from "lucide-react";
+import Button from "./Button";
 
 const projects = [
   {
@@ -180,15 +181,15 @@ export default function Projects() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center mt-12"
         >
-          <a
+          <Button
+            variant="secondary"
             href="https://github.com/hasanm95"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-secondary inline-flex"
           >
             <Github size={18} />
             View More on GitHub
-          </a>
+          </Button>
         </motion.div>
       </div>
     </section>

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import Button from "./Button";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -50,9 +51,9 @@ export default function Navbar() {
             </a>
           ))}
           <ThemeToggle />
-          <a href="#contact" className="btn-primary text-sm py-2 px-4">
+          <Button size="sm" href="#contact">
             Hire Me
-          </a>
+          </Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -85,17 +86,12 @@ export default function Navbar() {
                 {item.label}
               </a>
             ))}
-            <a
-              href="#contact"
-              className="btn-primary text-sm py-2 px-4 text-center"
-              onClick={() => setIsOpen(false)}
-            >
+            <Button size="sm" href="#contact" className="text-center" onClick={() => setIsOpen(false)}>
               Hire Me
-            </a>
+            </Button>
           </div>
         </motion.div>
       )}
     </motion.nav>
   );
 }
-

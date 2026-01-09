@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Mail, MapPin, Phone, Send, Github, Linkedin, CheckCircle } from "lucide-react";
+import Button from "./Button";
 
 export default function Contact() {
   const ref = useRef(null);
@@ -184,11 +185,7 @@ export default function Contact() {
                   placeholder="Your message here..."
                 />
               </div>
-              <button
-                type="submit"
-                className="btn-primary w-full justify-center"
-                disabled={submitted}
-              >
+              <Button type="submit" className="w-full" disabled={submitted}>
                 {submitted ? (
                   <>
                     <CheckCircle size={18} />
@@ -200,7 +197,7 @@ export default function Contact() {
                     Send Message
                   </>
                 )}
-              </button>
+              </Button>
             </form>
           </motion.div>
         </div>

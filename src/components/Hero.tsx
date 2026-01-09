@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import Button from "./Button";
 
 export default function Hero() {
   return (
@@ -57,13 +58,13 @@ export default function Hero() {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
         >
-          <a href="#projects" className="btn-primary">
+          <Button href="#projects">
             View My Work
-          </a>
-          <a href="#contact" className="btn-secondary">
+          </Button>
+          <Button variant="secondary" href="#contact">
             <Mail size={18} />
             Contact Me
-          </a>
+          </Button>
         </motion.div>
 
         <motion.div

@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 import { ExternalLink, Github, Users, Zap, TrendingUp, Code2, GraduationCap, LayoutDashboard, Building2, Smartphone } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { projectsData } from "@/constants";

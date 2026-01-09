@@ -1,0 +1,110 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+
+const skills = {
+  Frontend: ["JavaScript", "TypeScript", "React", "Next.js", "Remix", "Gatsby", "HTML5", "CSS3"],
+  "State Management": ["Redux", "Zustand", "Context API", "React Query"],
+  Styling: ["Tailwind CSS", "Styled Components", "Sass", "CSS Modules", "Bootstrap"],
+  Testing: ["Jest", "React Testing Library", "Vitest", "Storybook"],
+  "Tools & Build": ["Webpack", "Rollup", "Vite", "Git", "Docker", "CI/CD"],
+  Backend: ["Node.js", "Express", "GraphQL", "REST APIs", "Golang"],
+  Databases: ["MongoDB", "PostgreSQL"],
+  "AI Tooling": ["Cursor", "GitHub Copilot"],
+};
+
+export default function About() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section id="about" ref={ref} className="py-20">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            About <span className="gradient-text">Me</span>
+          </h2>
+          <p className="text-[var(--muted)] max-w-2xl mx-auto">
+            I specialize in building performant, accessible, and scalable web applications
+            with modern technologies.
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Bio Section */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="glass-card p-8"
+          >
+            <h3 className="text-xl font-semibold mb-4 gradient-text">Who I Am</h3>
+            <div className="space-y-4 text-[var(--muted)]">
+              <p>
+                I&apos;m a Senior Frontend Developer based in Feni, Bangladesh, with a passion
+                for creating exceptional digital experiences. With over 7 years in the industry,
+                I&apos;ve had the opportunity to work on high-traffic platforms serving millions of users.
+              </p>
+              <p>
+                At <strong className="text-[var(--foreground)]">4X Software (Deriv)</strong>, I redesigned
+                client-side architecture for a financial platform with 2M+ monthly active users, optimized
+                bundle sizes by 88%, and built comprehensive design systems used across 5+ products.
+              </p>
+              <p>
+                I hold a Master&apos;s degree in Mathematics from Noakhali Govt. College, which helps me
+                approach complex problems with analytical precision.
+              </p>
+            </div>
+
+            {/* Certificates */}
+            <div className="mt-6 pt-6 border-t border-[var(--border)]">
+              <h4 className="font-semibold mb-3">Certifications</h4>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 text-sm glass-card">JavaScript (Intermediate) - HackerRank</span>
+                <span className="px-3 py-1 text-sm glass-card">Node.js (Intermediate) - HackerRank</span>
+                <span className="px-3 py-1 text-sm glass-card">Frontend Developer (React) - HackerRank</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Skills Grid */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="space-y-6"
+          >
+            {Object.entries(skills).map(([category, items], categoryIndex) => (
+              <motion.div
+                key={category}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.5 + categoryIndex * 0.1 }}
+                className="glass-card p-4"
+              >
+                <h4 className="text-sm font-medium text-[var(--primary)] mb-3">{category}</h4>
+                <div className="flex flex-wrap gap-2">
+                  {items.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-3 py-1 text-sm bg-[var(--card-bg)] border border-[var(--border)] rounded-full text-[var(--muted)] hover:text-[var(--foreground)] hover:border-[var(--primary)] transition-colors"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -32,14 +32,14 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[var(--card-bg)] backdrop-blur-xl border-b border-[var(--border)] py-4"
+          ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-700 py-4"
           : "py-6"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         <a
           href="#"
-          className="text-xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent"
+          className="text-xl font-bold bg-gradient-to-r from-violet-500 to-cyan-500 bg-clip-text text-transparent"
         >
           Hasan
         </a>
@@ -50,7 +50,7 @@ export default function Navbar() {
             <a
               key={item.label}
               href={item.href}
-              className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors duration-300"
+              className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-300"
             >
               {item.label}
             </a>
@@ -65,7 +65,7 @@ export default function Navbar() {
         <div className="md:hidden flex items-center gap-4">
           <ThemeToggle />
           <button
-            className="text-[var(--foreground)]"
+            className="text-slate-900 dark:text-white"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -78,14 +78,14 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--border)] rounded-2xl mt-4 mx-4 p-6"
+          className="md:hidden bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200 dark:border-slate-700 rounded-2xl mt-4 mx-4 p-6"
         >
           <div className="flex flex-col gap-4">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+                className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}

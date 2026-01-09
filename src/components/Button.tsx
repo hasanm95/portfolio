@@ -11,23 +11,6 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-const variantStyles = {
-  primary: `
-    bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)]
-    text-white
-    border-none
-    hover:shadow-[0_10px_40px_rgba(139,92,246,0.3)]
-    hover:-translate-y-0.5
-  `,
-  secondary: `
-    bg-transparent
-    text-[var(--foreground)]
-    border border-[var(--border)]
-    hover:bg-[var(--card-bg)]
-    hover:border-[var(--primary)]
-  `,
-};
-
 const sizeStyles = {
   sm: "py-2 px-4 text-sm",
   md: "py-3.5 px-8",
@@ -55,7 +38,24 @@ export default function Button({
     active:scale-95
   `;
 
-  const combinedStyles = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+  const primaryStyles = `
+    bg-gradient-to-r from-violet-500 to-cyan-500
+    text-white
+    border-none
+    hover:shadow-[0_10px_40px_rgba(139,92,246,0.3)]
+    hover:-translate-y-0.5
+  `;
+
+  const secondaryStyles = `
+    bg-white dark:bg-slate-800
+    text-slate-700 dark:text-slate-200
+    border border-slate-200 dark:border-slate-700
+    hover:border-violet-500 dark:hover:border-violet-500
+    hover:bg-slate-50 dark:hover:bg-slate-700
+  `;
+
+  const variantStyles = variant === "primary" ? primaryStyles : secondaryStyles;
+  const combinedStyles = `${baseStyles} ${variantStyles} ${sizeStyles[size]} ${className}`;
 
   if (href) {
     return (

@@ -17,7 +17,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-[var(--primary)] font-medium mb-4 tracking-wide"
+          className="text-violet-500 font-medium mb-4 tracking-wide"
         >
           Hello, I&apos;m
         </motion.p>
@@ -26,10 +26,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-slate-900 dark:text-white"
         >
           Abu Hasan Al{" "}
-          <span className="bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-violet-500 to-cyan-500 bg-clip-text text-transparent">
             Mobarak
           </span>
         </motion.h1>
@@ -38,7 +38,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="text-xl md:text-2xl lg:text-3xl text-[var(--muted)] mb-6"
+          className="text-xl md:text-2xl lg:text-3xl text-slate-600 dark:text-slate-400 mb-6"
         >
           Senior Frontend Developer
         </motion.h2>
@@ -47,7 +47,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="text-[var(--muted)] text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed"
+          className="text-slate-600 dark:text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed"
         >
           7+ years of experience building scalable web applications using React,
           TypeScript, and modern JavaScript. Passionate about performance
@@ -79,7 +79,7 @@ export default function Hero() {
             href="https://github.com/hasanm95"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--muted)] hover:text-[var(--primary)] transition-colors p-2"
+            className="text-slate-500 dark:text-slate-400 hover:text-violet-500 transition-colors p-2"
           >
             <Github size={24} />
           </a>
@@ -87,13 +87,13 @@ export default function Hero() {
             href="https://www.linkedin.com/in/hasanm025/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--muted)] hover:text-[var(--primary)] transition-colors p-2"
+            className="text-slate-500 dark:text-slate-400 hover:text-violet-500 transition-colors p-2"
           >
             <Linkedin size={24} />
           </a>
           <a
             href="mailto:hasanmobarak25@gmail.com"
-            className="text-[var(--muted)] hover:text-[var(--primary)] transition-colors p-2"
+            className="text-slate-500 dark:text-slate-400 hover:text-violet-500 transition-colors p-2"
           >
             <Mail size={24} />
           </a>
@@ -108,7 +108,7 @@ export default function Hero() {
           opacity: { delay: 1 },
           y: { delay: 1, duration: 1.5, repeat: Infinity },
         }}
-        className="absolute bottom-10 text-[var(--muted)] hover:text-[var(--primary)] transition-colors"
+        className="absolute bottom-10 text-slate-500 dark:text-slate-400 hover:text-violet-500 transition-colors"
       >
         <ArrowDown size={28} />
       </motion.a>

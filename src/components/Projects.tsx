@@ -101,13 +101,13 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
             Featured{" "}
-            <span className="bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-violet-500 to-cyan-500 bg-clip-text text-transparent">
               Projects
             </span>
           </h2>
-          <p className="text-[var(--muted)] max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             A selection of projects that showcase my expertise and impact.
           </p>
         </motion.div>
@@ -119,7 +119,7 @@ export default function Projects() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="group bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--border)] rounded-2xl p-6 hover:border-[var(--primary)] transition-all duration-300"
+              className="group bg-white/80 dark:bg-slate-800/50 backdrop-blur-xl border border-slate-200 dark:border-slate-700 rounded-2xl p-6 hover:border-violet-500 transition-all duration-300"
             >
               {/* Header */}
               <div className="flex items-start justify-between mb-4">
@@ -134,7 +134,7 @@ export default function Projects() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 text-[var(--muted)] hover:text-[var(--primary)] transition-colors"
+                      className="p-2 text-slate-500 dark:text-slate-400 hover:text-violet-500 transition-colors"
                     >
                       <ExternalLink size={18} />
                     </a>
@@ -143,10 +143,10 @@ export default function Projects() {
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-bold mb-2 group-hover:text-[var(--primary)] transition-colors">
+              <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white group-hover:text-violet-500 transition-colors">
                 {project.title}
               </h3>
-              <p className="text-[var(--muted)] text-sm mb-4 leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed">
                 {project.description}
               </p>
 
@@ -167,7 +167,7 @@ export default function Projects() {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2 py-1 text-xs text-[var(--muted)] border border-[var(--border)] rounded"
+                    className="px-2 py-1 text-xs text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-600 rounded"
                   >
                     {tag}
                   </span>

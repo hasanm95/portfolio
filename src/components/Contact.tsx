@@ -18,8 +18,6 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // For now, just show success state
-    // In production, you'd integrate with a backend service
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
     setFormState({ name: "", email: "", message: "" });
@@ -72,13 +70,13 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
             Get In{" "}
-            <span className="bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-violet-500 to-cyan-500 bg-clip-text text-transparent">
               Touch
             </span>
           </h2>
-          <p className="text-[var(--muted)] max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
           </p>
         </motion.div>
@@ -91,27 +89,27 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-8"
           >
-            <div className="bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--border)] rounded-2xl p-8 transition-all duration-300">
-              <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent">
+            <div className="bg-white/80 dark:bg-slate-800/50 backdrop-blur-xl border border-slate-200 dark:border-slate-700 rounded-2xl p-8 transition-all duration-300">
+              <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-violet-500 to-cyan-500 bg-clip-text text-transparent">
                 Contact Information
               </h3>
               <div className="space-y-6">
                 {contactInfo.map((item) => (
                   <div key={item.label} className="flex items-center gap-4">
-                    <div className="p-3 rounded-lg bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)]">
+                    <div className="p-3 rounded-lg bg-gradient-to-r from-violet-500 to-cyan-500">
                       {item.icon}
                     </div>
                     <div>
-                      <p className="text-sm text-[var(--muted)]">{item.label}</p>
+                      <p className="text-sm text-slate-500 dark:text-slate-400">{item.label}</p>
                       {item.href ? (
                         <a
                           href={item.href}
-                          className="text-[var(--foreground)] hover:text-[var(--primary)] transition-colors"
+                          className="text-slate-900 dark:text-white hover:text-violet-500 transition-colors"
                         >
                           {item.value}
                         </a>
                       ) : (
-                        <p className="text-[var(--foreground)]">{item.value}</p>
+                        <p className="text-slate-900 dark:text-white">{item.value}</p>
                       )}
                     </div>
                   </div>
@@ -120,8 +118,8 @@ export default function Contact() {
             </div>
 
             {/* Social Links */}
-            <div className="bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--border)] rounded-2xl p-8 transition-all duration-300">
-              <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent">
+            <div className="bg-white/80 dark:bg-slate-800/50 backdrop-blur-xl border border-slate-200 dark:border-slate-700 rounded-2xl p-8 transition-all duration-300">
+              <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-violet-500 to-cyan-500 bg-clip-text text-transparent">
                 Connect With Me
               </h3>
               <div className="flex gap-4">
@@ -131,7 +129,7 @@ export default function Contact() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-4 bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--border)] rounded-xl text-[var(--muted)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition-all"
+                    className="p-4 bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-600 dark:text-slate-300 hover:text-violet-500 hover:border-violet-500 transition-all"
                     aria-label={link.label}
                   >
                     {link.icon}
@@ -146,14 +144,14 @@ export default function Contact() {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--border)] rounded-2xl p-8 transition-all duration-300"
+            className="bg-white/80 dark:bg-slate-800/50 backdrop-blur-xl border border-slate-200 dark:border-slate-700 rounded-2xl p-8 transition-all duration-300"
           >
-            <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent">
+            <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-violet-500 to-cyan-500 bg-clip-text text-transparent">
               Send a Message
             </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm text-[var(--muted)] mb-2">
+                <label htmlFor="name" className="block text-sm text-slate-600 dark:text-slate-400 mb-2">
                   Your Name
                 </label>
                 <input
@@ -162,12 +160,12 @@ export default function Contact() {
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                   required
-                  className="w-full px-4 py-3 bg-[var(--card-bg)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)] transition-colors"
+                  className="w-full px-4 py-3 bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg text-slate-900 dark:text-white focus:outline-none focus:border-violet-500 transition-colors"
                   placeholder="John Doe"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm text-[var(--muted)] mb-2">
+                <label htmlFor="email" className="block text-sm text-slate-600 dark:text-slate-400 mb-2">
                   Your Email
                 </label>
                 <input
@@ -176,12 +174,12 @@ export default function Contact() {
                   value={formState.email}
                   onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                   required
-                  className="w-full px-4 py-3 bg-[var(--card-bg)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)] transition-colors"
+                  className="w-full px-4 py-3 bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg text-slate-900 dark:text-white focus:outline-none focus:border-violet-500 transition-colors"
                   placeholder="john@example.com"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm text-[var(--muted)] mb-2">
+                <label htmlFor="message" className="block text-sm text-slate-600 dark:text-slate-400 mb-2">
                   Message
                 </label>
                 <textarea
@@ -190,7 +188,7 @@ export default function Contact() {
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-[var(--card-bg)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)] transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg text-slate-900 dark:text-white focus:outline-none focus:border-violet-500 transition-colors resize-none"
                   placeholder="Your message here..."
                 />
               </div>

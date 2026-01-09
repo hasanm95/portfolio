@@ -16,21 +16,25 @@ const ThemeContext = createContext<ThemeContextType>({
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("dark");
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    // Check localStorage on mount
     const stored = localStorage.getItem("theme") as Theme | null;
-    const initial = stored || "dark";
+    // Also check system preference if no stored value
+    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initial = stored || (systemPrefersDark ? "dark" : "light");
+    
     setTheme(initial);
-    document.documentElement.setAttribute("data-theme", initial);
+    // Use .dark class as per Tailwind docs
+    document.documentElement.classList.toggle("dark", initial === "dark");
   }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
+    // Use .dark class as per Tailwind docs
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
 
   return (

@@ -31,18 +31,18 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="border-t border-[var(--border)] py-12">
+    <footer className="border-t border-slate-200 dark:border-slate-800 py-12">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
             <a
               href="#"
-              className="text-2xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent"
+              className="text-2xl font-bold bg-gradient-to-r from-violet-500 to-cyan-500 bg-clip-text text-transparent"
             >
               Hasan
             </a>
-            <p className="text-sm text-[var(--muted)] mt-2 flex items-center justify-center md:justify-start gap-1">
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-2 flex items-center justify-center md:justify-start gap-1">
               © {currentYear} Made with <Heart size={14} className="text-red-500" /> by Abu Hasan Al Mobarak
             </p>
           </div>
@@ -53,7 +53,7 @@ export default function Footer() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+                className="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
               >
                 {link.label}
               </a>
@@ -68,7 +68,7 @@ export default function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[var(--muted)] hover:text-[var(--primary)] transition-colors"
+                className="text-slate-500 dark:text-slate-400 hover:text-violet-500 transition-colors"
                 aria-label={link.label}
               >
                 {link.icon}

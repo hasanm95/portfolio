@@ -2,6 +2,7 @@
 export { default as Button } from "./ui/Button";
 export { default as GlassCard } from "./ui/GlassCard";
 export { default as GradientText } from "./ui/GradientText";
+export { default as SkipLink } from "./ui/SkipLink";
 
 // Layout Components
 export { default as Navbar } from "./layout/Navbar";

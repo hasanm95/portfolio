@@ -2,7 +2,7 @@ import { Navbar, Hero, About, Experience, Projects, Contact, Footer } from "@/co
 
 export default function Home() {
   return (
-    <main className="px-4 md:px-6">
+    <main id="main-content" className="px-4 md:px-6">
       <Navbar />
       <Hero />
       <About />

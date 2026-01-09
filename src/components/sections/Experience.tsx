@@ -11,7 +11,7 @@ export default function Experience() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="experience" ref={ref} className="py-20">
+    <section id="experience" aria-labelledby="experience-heading" ref={ref} className="py-20">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -19,7 +19,7 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
+          <h2 id="experience-heading" className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
             Work{" "}
             <span className="bg-gradient-to-r from-violet-500 to-cyan-500 bg-clip-text text-transparent">
               Experience

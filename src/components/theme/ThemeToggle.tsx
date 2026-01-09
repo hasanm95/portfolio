@@ -12,6 +12,8 @@ export default function ThemeToggle() {
     setMounted(true);
   }, []);
 
+  const isDark = theme === "dark";
+
   if (!mounted) {
     return (
       <div className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 w-9 h-9" />
@@ -21,10 +23,12 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
+      role="switch"
+      aria-checked={isDark}
+      aria-label={`Dark mode ${isDark ? "on" : "off"}`}
       className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-violet-500 transition-all duration-300 hover:scale-105 active:scale-95"
-      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
     >
-      {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+      {isDark ? <Sun size={20} /> : <Moon size={20} />}
     </button>
   );
 }

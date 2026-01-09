@@ -13,7 +13,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
+    <section aria-labelledby="hero-heading" className="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -30,6 +30,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.h1
+          id="hero-heading"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}

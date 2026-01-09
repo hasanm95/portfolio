@@ -10,7 +10,7 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" ref={ref} className="py-20">
+    <section id="about" aria-labelledby="about-heading" ref={ref} className="py-20">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -18,7 +18,7 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
+          <h2 id="about-heading" className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
             About{" "}
             <span className="bg-gradient-to-r from-violet-500 to-cyan-500 bg-clip-text text-transparent">
               Me

@@ -102,7 +102,10 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Featured <span className="gradient-text">Projects</span>
+            Featured{" "}
+            <span className="bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent">
+              Projects
+            </span>
           </h2>
           <p className="text-[var(--muted)] max-w-2xl mx-auto">
             A selection of projects that showcase my expertise and impact.
@@ -116,14 +119,14 @@ export default function Projects() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="group glass-card p-6 hover:border-[var(--primary)] transition-all duration-300"
+              className="group bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--border)] rounded-2xl p-6 hover:border-[var(--primary)] transition-all duration-300"
             >
               {/* Header */}
               <div className="flex items-start justify-between mb-4">
                 <div
-                  className={`p-3 rounded-xl bg-gradient-to-r ${project.color} bg-opacity-20`}
+                  className={`p-3 rounded-xl bg-gradient-to-r ${project.color}`}
                 >
-                  {project.icon}
+                  <span className="text-white">{project.icon}</span>
                 </div>
                 <div className="flex gap-2">
                   {project.link && (
@@ -152,7 +155,7 @@ export default function Projects() {
                 {project.metrics.map((metric) => (
                   <span
                     key={metric}
-                    className={`px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r ${project.color} bg-opacity-10 text-white`}
+                    className={`px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r ${project.color} text-white`}
                   >
                     {metric}
                   </span>

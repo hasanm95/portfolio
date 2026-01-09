@@ -31,11 +31,16 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-card py-4" : "py-6"
+        scrolled
+          ? "bg-[var(--card-bg)] backdrop-blur-xl border-b border-[var(--border)] py-4"
+          : "py-6"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="text-xl font-bold gradient-text">
+        <a
+          href="#"
+          className="text-xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent"
+        >
           Hasan
         </a>
 
@@ -73,7 +78,7 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden glass-card mt-4 mx-4 p-6"
+          className="md:hidden bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--border)] rounded-2xl mt-4 mx-4 p-6"
         >
           <div className="flex flex-col gap-4">
             {navItems.map((item) => (

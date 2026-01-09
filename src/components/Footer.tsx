@@ -36,7 +36,10 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
-            <a href="#" className="text-2xl font-bold gradient-text">
+            <a
+              href="#"
+              className="text-2xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent"
+            >
               Hasan
             </a>
             <p className="text-sm text-[var(--muted)] mt-2 flex items-center justify-center md:justify-start gap-1">

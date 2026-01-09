@@ -27,19 +27,19 @@ export default function Contact() {
 
   const contactInfo = [
     {
-      icon: <Mail className="w-5 h-5" />,
+      icon: <Mail className="w-5 h-5 text-white" />,
       label: "Email",
       value: "hasanmobarak25@gmail.com",
       href: "mailto:hasanmobarak25@gmail.com",
     },
     {
-      icon: <Phone className="w-5 h-5" />,
+      icon: <Phone className="w-5 h-5 text-white" />,
       label: "Phone",
       value: "+880 1716 008633",
       href: "tel:+8801716008633",
     },
     {
-      icon: <MapPin className="w-5 h-5" />,
+      icon: <MapPin className="w-5 h-5 text-white" />,
       label: "Location",
       value: "Feni, Chattogram, Bangladesh",
     },
@@ -73,7 +73,10 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Get In <span className="gradient-text">Touch</span>
+            Get In{" "}
+            <span className="bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent">
+              Touch
+            </span>
           </h2>
           <p className="text-[var(--muted)] max-w-2xl mx-auto">
             I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
@@ -88,12 +91,14 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-8"
           >
-            <div className="glass-card p-8">
-              <h3 className="text-xl font-bold mb-6 gradient-text">Contact Information</h3>
+            <div className="bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--border)] rounded-2xl p-8 transition-all duration-300">
+              <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent">
+                Contact Information
+              </h3>
               <div className="space-y-6">
                 {contactInfo.map((item) => (
                   <div key={item.label} className="flex items-center gap-4">
-                    <div className="p-3 rounded-lg bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-opacity-20">
+                    <div className="p-3 rounded-lg bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)]">
                       {item.icon}
                     </div>
                     <div>
@@ -115,8 +120,10 @@ export default function Contact() {
             </div>
 
             {/* Social Links */}
-            <div className="glass-card p-8">
-              <h3 className="text-xl font-bold mb-6 gradient-text">Connect With Me</h3>
+            <div className="bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--border)] rounded-2xl p-8 transition-all duration-300">
+              <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent">
+                Connect With Me
+              </h3>
               <div className="flex gap-4">
                 {socialLinks.map((link) => (
                   <a
@@ -124,7 +131,7 @@ export default function Contact() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-4 glass-card text-[var(--muted)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition-all"
+                    className="p-4 bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--border)] rounded-xl text-[var(--muted)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition-all"
                     aria-label={link.label}
                   >
                     {link.icon}
@@ -139,9 +146,11 @@ export default function Contact() {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="glass-card p-8"
+            className="bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--border)] rounded-2xl p-8 transition-all duration-300"
           >
-            <h3 className="text-xl font-bold mb-6 gradient-text">Send a Message</h3>
+            <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent">
+              Send a Message
+            </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm text-[var(--muted)] mb-2">

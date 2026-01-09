@@ -29,7 +29,10 @@ export default function About() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            About <span className="gradient-text">Me</span>
+            About{" "}
+            <span className="bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent">
+              Me
+            </span>
           </h2>
           <p className="text-[var(--muted)] max-w-2xl mx-auto">
             I specialize in building performant, accessible, and scalable web applications
@@ -43,9 +46,11 @@ export default function About() {
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass-card p-8"
+            className="bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--border)] rounded-2xl p-8 transition-all duration-300"
           >
-            <h3 className="text-xl font-semibold mb-4 gradient-text">Who I Am</h3>
+            <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent">
+              Who I Am
+            </h3>
             <div className="space-y-4 text-[var(--muted)]">
               <p>
                 I&apos;m a Senior Frontend Developer based in Feni, Bangladesh, with a passion
@@ -67,9 +72,15 @@ export default function About() {
             <div className="mt-6 pt-6 border-t border-[var(--border)]">
               <h4 className="font-semibold mb-3">Certifications</h4>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 text-sm glass-card">JavaScript (Intermediate) - HackerRank</span>
-                <span className="px-3 py-1 text-sm glass-card">Node.js (Intermediate) - HackerRank</span>
-                <span className="px-3 py-1 text-sm glass-card">Frontend Developer (React) - HackerRank</span>
+                <span className="px-3 py-1 text-sm bg-[var(--card-bg)] border border-[var(--border)] rounded-lg">
+                  JavaScript (Intermediate) - HackerRank
+                </span>
+                <span className="px-3 py-1 text-sm bg-[var(--card-bg)] border border-[var(--border)] rounded-lg">
+                  Node.js (Intermediate) - HackerRank
+                </span>
+                <span className="px-3 py-1 text-sm bg-[var(--card-bg)] border border-[var(--border)] rounded-lg">
+                  Frontend Developer (React) - HackerRank
+                </span>
               </div>
             </div>
           </motion.div>
@@ -87,7 +98,7 @@ export default function About() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.5 + categoryIndex * 0.1 }}
-                className="glass-card p-4"
+                className="bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--border)] rounded-2xl p-4 transition-all duration-300"
               >
                 <h4 className="text-sm font-medium text-[var(--primary)] mb-3">{category}</h4>
                 <div className="flex flex-wrap gap-2">

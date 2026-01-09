@@ -59,7 +59,10 @@ export default function Experience() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Work <span className="gradient-text">Experience</span>
+            Work{" "}
+            <span className="bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent">
+              Experience
+            </span>
           </h2>
           <p className="text-[var(--muted)] max-w-2xl mx-auto">
             A timeline of my professional journey and key accomplishments.
@@ -91,7 +94,7 @@ export default function Experience() {
               />
 
               <div
-                className={`glass-card p-6 ml-8 md:ml-0 ${
+                className={`bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--border)] rounded-2xl p-6 ml-8 md:ml-0 transition-all duration-300 ${
                   index % 2 === 0 ? "md:mr-8" : "md:ml-8"
                 }`}
               >

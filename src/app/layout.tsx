@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import GradientBackground from "@/components/GradientBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,11 +37,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
-          <div className="gradient-bg">
-            <div className="gradient-orb gradient-orb-1"></div>
-            <div className="gradient-orb gradient-orb-2"></div>
-            <div className="gradient-orb gradient-orb-3"></div>
-          </div>
+          <GradientBackground />
           {children}
         </ThemeProvider>
       </body>
